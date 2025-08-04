@@ -1,102 +1,148 @@
 import React from 'react';
-import { Server, Brain, Code, Zap } from 'lucide-react';
+import { User, Code, Zap, Target } from 'lucide-react';
 
 const About: React.FC = () => {
+  const stats = [
+    { number: '4.5+', label: 'Years Experience', color: 'cyan' },
+    { number: '10+', label: 'Projects Delivered', color: 'green' },
+    { number: '5+', label: 'AI Solutions Built', color: 'orange' },
+    { number: '80%', label: 'Productivity Increase', color: 'purple' },
+  ];
+
   const highlights = [
     {
-      icon: Server,
-      title: 'Rapid Backend Development',
-      description: 'Quick adaptation to new technologies, building scalable microservices with Python, FastAPI, and Kafka'
-    },
-    {
-      icon: Brain,
-      title: 'Solution-Focused AI',
-      description: 'Fast learning of emerging AI technologies - LLMs, LangChain, RAG systems for intelligent problem-solving'
-    },
-    {
       icon: Code,
-      title: 'Adaptive System Design',
-      description: 'Quick grasp of complex architectures, designing clean, distributed systems with performance focus'
+      title: 'Backend Excellence',
+      description: 'Specialized in building scalable microservices with Python, FastAPI, and modern architectures'
     },
     {
       icon: Zap,
-      title: 'Agile DevOps',
-      description: 'Rapidly mastering deployment technologies - Docker, Kubernetes, AWS, and efficient CI/CD solutions'
+      title: 'Rapid Learning',
+      description: 'Quick adaptation to new technologies and frameworks, staying ahead of industry trends'
+    },
+    {
+      icon: Target,
+      title: 'Solution-Focused',
+      description: 'Problem-solving approach with clean code practices and performance optimization'
     }
   ];
 
-  return (
-    <section id="about" className="py-20 bg-gray-800/50">
-      <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-cyan-400 to-green-400 bg-clip-text text-transparent">
-            About Me
-          </h2>
+  const getStatColor = (color: string) => {
+    const colors = {
+      cyan: 'text-cyan-400',
+      green: 'text-green-400',
+      orange: 'text-orange-400',
+      purple: 'text-purple-400'
+    };
+    return colors[color as keyof typeof colors];
+  };
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+  return (
+    <section id="about" className="py-24 bg-white">
+      <div className="container mx-auto px-6">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+              About Me
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-green-400 mx-auto"></div>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+            {/* Left Column - Personal Info */}
             <div>
-              <div className="bg-gray-900/50 rounded-lg p-6 border border-gray-700">
-                <div className="flex items-center space-x-2 mb-4">
-                  <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                  <div className="w-3 h-3 bg-orange-400 rounded-full"></div>
-                  <div className="w-3 h-3 bg-red-400 rounded-full"></div>
-                  <span className="text-gray-500 text-sm ml-4 font-mono">~/about</span>
+              <div className="mb-8">
+                <div className="flex items-center space-x-3 mb-6">
+                  <User className="h-8 w-8 text-cyan-500" />
+                  <h3 className="text-3xl font-bold text-gray-900">Hello, I'm Bharath</h3>
                 </div>
-                <div className="font-mono text-sm text-gray-300 leading-relaxed">
-                  <span className="text-cyan-400">const</span>{' '}
-                  <span className="text-green-400">engineer</span> = {'{'}
-                  <br />
-                  <span className="ml-4 text-orange-400">name</span>: <span className="text-yellow-400">"Bharath Kuppusamy"</span>,
-                  <br />
-                  <span className="ml-4 text-orange-400">experience</span>: <span className="text-yellow-400">"4.5+ years"</span>,
-                  <br />
-                  <span className="ml-4 text-orange-400">specialization</span>: [
-                  <br />
-                  <span className="ml-8 text-yellow-400">"Backend Development"</span>,
-                  <br />
-                  <span className="ml-8 text-yellow-400">"AI Engineering"</span>,
-                  <br />
-                  <span className="ml-8 text-yellow-400">"System Design"</span>
-                  <br />
-                  <span className="ml-4">],</span>
-                  <br />
-                  <span className="ml-4 text-orange-400">traits</span>: [
-                  <br />
-                  <span className="ml-8 text-yellow-400">"Quick Learner"</span>,
-                  <br />
-                  <span className="ml-8 text-yellow-400">"Solution Driven"</span>
-                  <br />
-                  <span className="ml-4">],</span>
-                  <br />
-                  <span className="ml-4 text-orange-400">passion</span>: <span className="text-yellow-400">"Solving complex problems"</span>
-                  <br />
-                  {'};'}
-                </div>
+                <p className="text-lg text-gray-600 leading-relaxed mb-6">
+                  A passionate Software Engineer with over 4.5 years of experience in building robust, 
+                  scalable systems. I specialize in backend development, AI engineering, and system design, 
+                  with a proven track record of delivering high-impact solutions.
+                </p>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  My approach combines rapid learning with solution-driven development, enabling me to 
+                  quickly adapt to new technologies and deliver efficient, maintainable code that drives 
+                  business value.
+                </p>
+              </div>
+
+              {/* Highlights */}
+              <div className="space-y-6">
+                {highlights.map((highlight, index) => {
+                  const Icon = highlight.icon;
+                  return (
+                    <div key={index} className="flex items-start space-x-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-cyan-100 to-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Icon className="h-6 w-6 text-cyan-600" />
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-semibold text-gray-900 mb-2">
+                          {highlight.title}
+                        </h4>
+                        <p className="text-gray-600 leading-relaxed">
+                          {highlight.description}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
-            <div className="space-y-6">
-              {highlights.map((highlight, index) => {
-                const Icon = highlight.icon;
-                return (
-                  <div
-                    key={index}
-                    className="flex items-start space-x-4 p-4 bg-gray-900/30 rounded-lg border border-gray-700/50 hover:border-cyan-400/30 transition-all duration-300 group"
-                  >
-                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-cyan-400/20 to-green-400/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Icon className="h-6 w-6 text-cyan-400" />
+            {/* Right Column - Stats */}
+            <div className="lg:pl-8">
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 shadow-xl">
+                <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+                  Career Highlights
+                </h3>
+                <div className="grid grid-cols-2 gap-8">
+                  {stats.map((stat, index) => (
+                    <div key={index} className="text-center">
+                      <div className={`text-4xl font-bold mb-2 ${getStatColor(stat.color)}`}>
+                        {stat.number}
+                      </div>
+                      <div className="text-gray-600 font-medium">
+                        {stat.label}
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-cyan-400 transition-colors">
-                        {highlight.title}
-                      </h3>
-                      <p className="text-gray-400 leading-relaxed">
-                        {highlight.description}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
+                  ))}
+                </div>
+              </div>
+
+              {/* Code Block */}
+              <div className="mt-8 bg-gray-900 rounded-xl p-6 shadow-xl">
+                <div className="flex items-center space-x-2 mb-4">
+                  <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+                  <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                  <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                  <span className="text-gray-500 text-sm ml-4 font-mono">engineer.py</span>
+                </div>
+                <div className="font-mono text-sm text-gray-300 leading-relaxed">
+                  <span className="text-purple-400">class</span>{' '}
+                  <span className="text-yellow-400">SoftwareEngineer</span>:
+                  <br />
+                  <span className="ml-4 text-purple-400">def</span>{' '}
+                  <span className="text-blue-400">__init__</span>(self):
+                  <br />
+                  <span className="ml-8">self.name = </span>
+                  <span className="text-green-400">"Bharath Kuppusamy"</span>
+                  <br />
+                  <span className="ml-8">self.role = </span>
+                  <span className="text-green-400">"Backend Engineer"</span>
+                  <br />
+                  <span className="ml-8">self.skills = [</span>
+                  <br />
+                  <span className="ml-12 text-green-400">"Python", "FastAPI", "AI"</span>
+                  <br />
+                  <span className="ml-8">]</span>
+                  <br />
+                  <span className="ml-8">self.passion = </span>
+                  <span className="text-green-400">"Problem Solving"</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
