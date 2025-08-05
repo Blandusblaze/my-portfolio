@@ -4,6 +4,22 @@ import { ExternalLink, Github, Zap, FileText, ArrowRight } from 'lucide-react';
 const Projects: React.FC = () => {
   const projects = [
     {
+      title: 'Orpheus – Unified Social Media Automation Platform',
+      description: 'A full-stack automation platform that enables users to post content to multiple social media platforms simultaneously. Designed for digital marketers and content creators, integrating with social APIs and leveraging OpenAI for content generation.',
+      tech: ['FastAPI', 'Python', 'React.js', 'PostgreSQL', 'MongoDB', 'Celery', 'RabbitMQ', 'OpenAI API'],
+      features: [
+        'AI-Powered Content Creation with OpenAI GPT API for captions and hashtags',
+        'Cross-Platform Posting with REST APIs for multiple social platforms',
+        'Asynchronous Task Scheduling using Celery and RabbitMQ',
+        'Intuitive React.js frontend dashboard for campaign management',
+        'Dual database architecture: PostgreSQL for structured data, MongoDB for media'
+      ],
+      status: 'Production',
+      icon: Zap,
+      gradient: 'from-blue-400 to-blue-600',
+      github: 'https://github.com/Roronoa-sudo-zoro/Orpheus/'
+    },
+    {
       title: 'AI-Powered JIRA Assistant',
       description: 'Built an intelligent AI agent to answer JIRA queries using Retrieval-Augmented Generation (RAG) architecture with real-time data processing and vector database integration.',
       tech: ['FastAPI', 'n8n', 'LangChain', 'Qdrant', 'Ollama', 'RAG'],
@@ -124,10 +140,15 @@ const Projects: React.FC = () => {
 
                     {/* Action Buttons */}
                     <div className="flex space-x-4">
-                      <button className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg font-semibold hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                      <a
+                        href={project.github || '#'}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                      >
                         <Github className="h-5 w-5" />
                         <span>View Code</span>
-                      </button>
+                      </a>
                       <button className="flex items-center space-x-2 px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg font-semibold hover:border-gray-400 hover:bg-gray-50 transition-all duration-300">
                         <ExternalLink className="h-5 w-5" />
                         <span>Live Demo</span>

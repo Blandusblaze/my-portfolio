@@ -34,7 +34,7 @@ const Header: React.FC = () => {
             <span className={`text-xl font-bold transition-colors ${
               isScrolled ? 'text-gray-900' : 'text-white'
             }`}>
-              Bharath Kuppusamy
+              Bharath
             </span>
           </div>
 

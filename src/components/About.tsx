@@ -128,7 +128,7 @@ const About: React.FC = () => {
                   <span className="text-blue-400">__init__</span>(self):
                   <br />
                   <span className="ml-8">self.name = </span>
-                  <span className="text-green-400">"Bharath Kuppusamy"</span>
+                  <span className="text-green-400">"Bharath"</span>
                   <br />
                   <span className="ml-8">self.role = </span>
                   <span className="text-green-400">"Backend Engineer"</span>
