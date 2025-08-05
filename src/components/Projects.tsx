@@ -14,7 +14,6 @@ const Projects: React.FC = () => {
         'Intuitive React.js frontend dashboard for campaign management',
         'Dual database architecture: PostgreSQL for structured data, MongoDB for media'
       ],
-      status: 'Production',
       icon: Zap,
       gradient: 'from-blue-400 to-blue-600',
       github: 'https://github.com/Roronoa-sudo-zoro/Orpheus/'
@@ -29,7 +28,6 @@ const Projects: React.FC = () => {
         'Microservices architecture with Docker deployment',
         'RESTful API endpoints with comprehensive documentation'
       ],
-      status: 'Production',
       icon: Zap,
       gradient: 'from-cyan-400 to-blue-500'
     },
@@ -43,7 +41,6 @@ const Projects: React.FC = () => {
         'Key-value pair extraction with validation',
         'Automated data validation and error handling pipeline'
       ],
-      status: 'Deployed',
       icon: FileText,
       gradient: 'from-green-400 to-emerald-500'
     }
@@ -97,13 +94,6 @@ const Projects: React.FC = () => {
                       <h3 className="text-3xl font-bold text-gray-900">
                         {project.title}
                       </h3>
-                      <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                        project.status === 'Production' 
-                          ? 'bg-green-100 text-green-800 border border-green-200' 
-                          : 'bg-cyan-100 text-cyan-800 border border-cyan-200'
-                      }`}>
-                        {project.status}
-                      </span>
                     </div>
 
                     <p className="text-lg text-gray-600 mb-6 leading-relaxed">
