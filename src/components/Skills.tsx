@@ -24,7 +24,7 @@ const Skills: React.FC = () => {
     {
       icon: Cloud,
       title: 'Cloud & DevOps',
-      skills: ['AWS EC2', 'AWS S3', 'Docker', 'Kubernetes', 'Linux'],
+      skills: ['AWS EC2', 'AWS S3', 'Docker', 'Linux'],
       color: 'orange'
     },
     {
