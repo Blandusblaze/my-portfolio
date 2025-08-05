@@ -107,7 +107,6 @@ const Hero: React.FC = () => {
             <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
             <span className="text-green-400 font-medium">Available for new opportunities</span>
           </div>
-        </div>
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
